@@ -24,6 +24,9 @@ description: >- # used by seo meta and the atom feed
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://jiayangzh.com"
+# The base URL of your site
+baseurl: ""
+
 
 # the avatar on sidebar, support local or CORS resources
 avatar: assets/img/about/avatar_square.png # string, local or CORS resources
@@ -142,9 +145,9 @@ assets:
     env: # [development | production]
 
 pwa:
-  enabled: true # The option for PWA feature (installable)
+  enabled: false # The option for PWA feature (installable)
   cache:
-    enabled: true # The option for PWA offline cache
+    enabled: false # The option for PWA offline cache
     # Paths defined here will be excluded from the PWA cache.
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
@@ -153,8 +156,7 @@ pwa:
 
 paginate: 10
 
-# The base URL of your site
-baseurl: ""
+
 
 # ------------ The following options are not recommended to be modified ------------------
 
