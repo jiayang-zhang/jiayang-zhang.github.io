@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="home">
+  {% if content %}
+    <div class="page-content">
+      {{ content }}
+    </div>
+  {% endif %}
+
+  {%- if site.posts.size > 0 -%}
+    <div class="post-list">
+      {%- for post in paginator.posts -%}
+        {% include post-list-item.html post=post %}
+      {%- endfor -%}
+    </div>
+
+    {% include paginator.html %}
+  {%- endif -%}
+</div>
