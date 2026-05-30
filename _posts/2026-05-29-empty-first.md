@@ -5,7 +5,7 @@ title_zh: 空了，新的才能进来
 title_en: Empty First
 excerpt_or: 昨天晚上我明白了，每次旅行什么都不想（或者即使在想，因为没有工作，没有日复一日的生活，让它们来，让它们走）是一个清空的过程。所以每次在旅行后，回来日常的环境时，这个新的感觉会重新出来。
 excerpt_zh: 昨天晚上我明白了一件事。每次旅行时什么都不想 （或者即使在想，因为没有工作、没有日复一日的生活，念头来了就来，走了就走）这是一个清空的过程。所以每次旅行回来，回到日常环境，那个"新"的感觉会重新出现。
-excerpt_en: Every time I travel, my mind goes quiet. Even when thoughts do come, they move through freely — no deadlines, no routines to maintain, nothing to hold onto. I didn't realize it until recently, but this is a clearing process. That's why coming home after a trip always brings a certain clarity and freshness. Something new gets in.
+excerpt_en: Every time I travel, my mind goes clear. Even when thoughts do come, they move through freely — no deadlines, no routines to maintain, nothing to hold onto. I didn't realize it until recently, but this is a clearing process. That's why coming home after a trip always brings a certain clarity and freshness. Something new gets in.
 permalink: /posts/empty-first/
 categories: intuition
 layout: intuition-post
@@ -39,7 +39,7 @@ content_zh: |
 
   ##### <br> **检查方式**
   对我来说有一个检查方式，觉察自己有没有 fully present。这个很明显，不在状态时眼神会发直，不会打哈欠，脑子乱转。对我最有用的，是调整一下频率，不让眼睛愣神。比如旅行，停下来，没什么可想的，什么也不想。
-  
+
   日常生活里也需要这样的时间，20分钟，什么也不做，什么也不想，没有目的，就是存在。感受存在也不是目的。
 
   ##### <br> **什么是新的感觉？**
