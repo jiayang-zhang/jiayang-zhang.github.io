@@ -1,4 +1,4 @@
----
+<!-- ---
 title: INTUITION Insight
 title_zh: 直觉与发现
 title_or: 直觉与发现
@@ -10,7 +10,6 @@ categories: intuition
 layout: intuition-post
 date: 2026-05-30
 ---
-
 content_zh: |
   在科学研究和写作中，直觉常常被误解为一种模糊的感觉。然而，当我们将它与知识和经验结合时，直觉就变成了一种快速判断的力量。
 
@@ -29,3 +28,4 @@ content_en: |
   These judgments are not made out of nowhere; they emerge from the brain’s unconscious processing of past patterns. With practice and reflection, intuition can become more precise and help us find elegant directions in complex problems.
 
   This article walks you through three ways intuition works and how to apply it in your daily creative work.
+--- -->
