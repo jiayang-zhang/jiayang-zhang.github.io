@@ -57,9 +57,9 @@ content_zh: |
   ##### <br> **总结** 
   
   旅行时脑子空，所以有空间。日常时念头太多，全堵着，空间没了，可能性也没了。
-  我发现，有目的地放下，比堵着更耗能。所以过去的冥想反而是另一种撑。有目的的一切都是在撑，包括有目的地放松。
-  如果可以每天给我自己20分钟，念头直接穿过，不拦不放，自己走。不是技术，是状态。没有目的的时候，念头自己会流动。
-  道理听了不算懂，身体感受到才算真的。
+  我发现，有目的地放下同样耗能。所以过去的冥想反而是另一种撑。有目的的一切都是在撑，包括有目的地放松。
+  如果可以每天给我自己20分钟，念头直接穿过，不拦不放，自己走。不是方法，是状态。没有目的的时候，念头自己会流动。
+  道理听了不算懂，身体感受到才是真的。
 
   ##### <br> **我猜你也感受过**
 
@@ -79,7 +79,7 @@ content_en: |
 
   This morning, two things I'd read a long time ago came back to me.
 
-  The first is from Caigentan, a Ming dynasty collection of reflections: "The songs of birds and insects are all transmissions of the heart. The colors of flowers and grass are nothing but texts of the Way." The idea is that when the mind is still, everything becomes so real. A bird call, a patch of light, a stranger's face — all of it speaks.
+  The first is from Caigentan, a Ming dynasty collection of reflections: "The songs of birds and insects are all transmissions of the heart. The colors of flowers and grass are nothing but texts of the Way." The idea is that when the mind is still, everything becomes so real. A bird call, a patch of light — all of it speaks.
 
   This is what being fully present actually feels like.
 
