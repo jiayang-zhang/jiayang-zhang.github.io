@@ -3,9 +3,9 @@ title: 空了，新的才能进来
 title_or: 空了，新的才能进来
 title_zh: 空了，新的才能进来
 title_en: Empty First
-excerpt_or: 昨天晚上我明白了，每次旅行什么都不想（或者即使在想，因为没有工作，没有日复一日的生活，让它们来，让它们走）是一个清空的过程。所以每次在旅行后，回来日常的环境时，这个新的感觉会重新出来。
-excerpt_zh: 昨天晚上我明白了一件事。每次旅行时什么都不想 （或者即使在想，因为没有工作、没有日复一日的生活，念头来了就来，走了就走）这是一个清空的过程。所以每次旅行回来，回到日常环境，那个"新"的感觉会重新出现。
-excerpt_en: Every time I travel, my mind goes clear. Even when thoughts do come, they move through freely — no deadlines, no routines to maintain, nothing to hold onto. I didn't realize it until recently, but this is a clearing process. That's why coming home after a trip always brings a certain clarity and freshness. Something new gets in.
+excerpt_or: 
+excerpt_zh: 昨天晚上我明白了，每次旅行时什么都不想 （或者即使在想，因为没有工作、没有日复一日的生活，念头来了就来，走了就走）这是一个清空的过程。所以每次旅行回来，回到日常环境，那个"新"的感觉会重新出现。
+excerpt_en: Every time I travel, my mind goes clear — or even when thoughts do come, there's no work, no daily routine to maintain, so they arrive and leave on their own. It's a clearing process. That's why coming home after a trip always brings a certain freshness. That "new" feeling returns.
 permalink: /posts/empty-first/
 categories: intuition
 layout: intuition-post
@@ -25,9 +25,7 @@ content_zh: |
 
   这是同一种感觉，fully present。
 
-  如何做到这种感觉？Fully present, 天机清澈，胸次玲珑，触物皆有会心处。
-  
-  任何人都可以。只有空了，这些才能进来，新的才能进来。
+  那怎么做到？天机清澈，胸次玲珑，触物皆有会心处。任何人都可以。只有空了，这些才能进来，新的才能进来。
 
   博尔赫斯在《博闻强记的富内斯》里写到伊雷内奥·富内斯，说他"毫不费力地学会了英语、法语、葡萄牙语和拉丁语。但我怀疑他并不太有思考的能力。思考，就是忘掉差异，进行概括，进行抽象。"
 
@@ -83,58 +81,58 @@ content_zh: |
 
 
 content_en: |
-  Every time I travel, my mind goes clear. So much clarity. Even when thoughts do come, they move through freely — no deadlines, no routines to maintain, nothing to hold onto. I didn't realize it until recently, but this is a clearing process. That's why coming home after a trip always brings a certain clarity and freshness. Something new gets in.
+  Every time I travel, my mind goes clear — or even when thoughts do come, there's no work, no daily routine to maintain, so they arrive and leave on their own. It's a clearing process. That's why coming home after a trip always brings a certain freshness. That "new" feeling returns.
 
-  This morning, two things I'd read a long time ago came back to me.
+  This morning, two things I'd encountered before came back to me.
 
-  The first is from Caigentan, a Ming dynasty collection of reflections: "The songs of birds and insects are all transmissions of the heart. The colors of flowers and grass are nothing but texts of the Way." The idea is that when the mind is still, everything becomes so real. A bird call, a patch of light — all of it speaks.
+  From Caigentan: "The songs of birds and insects are all transmissions of the heart. The colours of flowers and grass are nothing but texts of the Way."
 
-  This is what being fully present actually feels like.
+  This is the same feeling. Fully present.
 
-  There's a line I love: "The scholar keeps the mind clear as sky, the chest open as a hollow — and in touching things, finds meaning everywhere." You don't have to be a scholar. Anyone can get there. But only when the mind is empty first. Only then does anything new come in.
+  How do you get there? A mind clear as sky, a chest open as a hollow, and in touching things, meaning everywhere. Anyone can. But only when the mind is empty first. Only then does anything new come in.
 
-  Borges wrote in Funes the Memorious that a man named Funes who, after an accident, could forget nothing. He remembered every leaf on every tree, every time he had seen it. Borges wrote: "With no effort, he had learned English, French, Portuguese and Latin. I suspect, however, that he was not very capable of thought. To think is to forget differences, generalize, make abstractions. In the teeming world of Funes, there were only details, almost immediate in their presence." Funes remembered everything and understood nothing. The connections we call insight — those only form in the space that forgetting creates.
+  Borges wrote about a man named Funes who, after an accident, could forget nothing. He remembered every leaf on every tree, every time he had seen it. Borges writes: "With no effort, he had learned English, French, Portuguese and Latin. I suspect, however, that he was not very capable of thought. To think is to forget differences, generalize, make abstractions. In the teeming world of Funes, there were only details, almost immediate in their presence." Funes remembered everything and understood nothing. The connections we call insight — those only form in the space that forgetting creates.
 
   Forgetting is a gift. Not thinking is a gift. Empty first, and then something real can enter.
 
+  #####  <br> **A way to check in**
+  I have a simple way of checking in with myself. When I'm not present, my eyes go flat. My thoughts loop without landing. It's obvious once I notice it. The most useful thing I've found is just to shift the frequency — interrupt the stare, break the loop. Travel does this automatically. So does stopping in the middle of the day and doing nothing for twenty minutes. No purpose. Just existing. And feeling your existence is also a purpose — so not even that. You know what I mean.
 
-  <hr>
+  #####  <br> **What does the "new" feeling feel like?** 
 
-  I have a simple way of checking in with myself. When I'm not present, my eyes go flat. I stop blinking naturally. My thoughts loop without landing anywhere. It's obvious once I notice it.
+  When that feeling arrives, it's wide open. Clear. Like standing in an open field and seeing past the immediate edges of daily life — endless possibility, a sense of spaciousness. When I'm in a foggy state, I can only see ten metres ahead. Everything feels narrow.
   
-  The most useful thing I've found is just to shift the frequency — interrupt the stare, break the loop. Travel does this for me automatically. So does stopping in the middle of the day and doing nothing for twenty minutes. Not meditating. Just existing without a purpose. And yes, "feeling your existence" is also a purpose — so not even that. You know what I mean.
- 
-  When I'm in that open state, everything feels wide. I can see past the immediate ten meters of my life — past the tasks and the schedule and the noise. The world feels full of possibility.
-  
-  When I'm not, it's the opposite. I can only see what's right in front of me. Not because I've become smaller, but because I'm running on empty.
-  
-  For a long time I kept myself going through willpower. Maintaining a normal-looking exterior while quietly exhausted on the inside. The thing about willpower is that it's not a source of energy — it's a drain on it. The more you use it to hold yourself together, the less you actually have.
-  
-  So there is a thing I can do. Everyday, twenty minutes that belong to no one and nothing. Not working. Not recovering. Not resetting. Not doing anything. Just being there — unoccupied.
-  
-  A few things that don't count: spending those twenty minutes focused on work with a clear head — that's just a different kind of effort. Going to a park to release — if you go as the person who's still holding everything together, you're still holding everything together. The location changes; the tension doesn't. I used to turn rest itself into a task. "I need to recover" is still a goal. Real rest has no goal.
-  
-  20 minutes. No agenda. Not to recharge, not to feel better, not for anything. Just in.
+  #####  <br> **What does the foggy state feel like?**
 
-  <hr>
+  When I'm foggy, the noise inside is too loud and drowns everything else out. I might notice I'm tired, try to ground myself, and find I simply can't connect. That's a sign the method itself requires more energy than I have. Forcing groundedness when exhausted makes it harder, not easier. In that state, I have no brain power left. My lens contracts to the nearest ten metres. I haven't become smaller — I've just run out of fuel.
 
-  What I've come to understand is that the problem was never a lack of energy. It was a blocked mind. Travel clears it because there's nothing to think about. Daily life fills it back up because there's always something. When there's no space, there's no possibility either.
+  For a long time I kept myself going through willpower — maintaining a normal exterior while quietly exhausted inside. Willpower isn't a source of energy. It's a drain on it.
+
+  #####  <br> **Moving from foggy to open**
+  So I made a rule for myself: every workday, a fixed period of not holding it together. Even twenty minutes. No performing okayness, no maintaining anything for anyone. Just being there, unoccupied. Not meditating, not going into nature. Just existing.
+
+  A few things that don't count: spending those twenty minutes focused on work with a clear head — that's just a different kind of effort. Going to a park to decompress — if you go as the person who's still holding everything together, you're still holding everything together. I used to turn rest itself into a task. "I need to recover" is still a goal. Real rest has no goal.
+
+  Twenty minutes. No agenda. Not to recharge, not to feel better, not for anything. Just in.
   
-  And here's the part that surprised me: deliberately trying to let go takes more energy than just being stuck. All those years of structured meditation — I was efforting my way through relaxation. Anything done with a goal is still effort, including effortful rest.
-  
-  What's different now is that thoughts just pass through. I don't hold them and I don't push them away. They move on their own. It's not a technique. It's a state. When there's no purpose, the mind flows by itself.
-  
+  #####  <br> **To bring it together**
+
+  When I travel, my mind clears and space opens up. In daily life, too many thoughts pile up, the space disappears, and with it the sense of possibility.
+
+  What I've found is that deliberately trying to let go takes just as much energy as being stuck. All those years of structured meditation — I was efforting my way through relaxation. Anything done with a goal is still effort, including effortful rest.
+
+  Twenty minutes a day where thoughts just pass through — not held, not pushed away, moving on their own. It's not a method. It's a state. When there's no purpose, the mind flows by itself.
+
   You can hear this and nod along. But you only really know it when your body has felt it.
 
-  <hr>
+  #####  <br> **I think you've felt it too**
 
-  I think you've felt it too.
-  
-  It’s a beautiful feeling.
-  
-  That state where everything looks a little warmer, clear and bright.
-  
-  For those passing by, there is some love that you may quietly share with them. Just warmth, spilling over naturally.
-  
+  It's a beautiful feeling.
+
+  Everything you look at feels warm, full of light, clear and bright.
+
+  For those passing by, there is some love in you that quietly shares with them. Just warmth, spilling over naturally.
+
   You feel the flowers, the grass, the trees, every living thing quietly unfolding — and you're there with them, truly present, fully alive.
+
 ---
