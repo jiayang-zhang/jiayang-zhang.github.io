@@ -1,9 +1,7 @@
 ---
 title: 轻和重
-title_or: 轻和重
 title_zh: 轻和重
 title_en: Light and Heavy
-excerpt_or: 
 excerpt_zh: 
   第一篇。我能感受到每一个人的轻和重，那个重，是背着一个什么样的壳。
 
@@ -27,9 +25,6 @@ permalink: /posts/light-and-heavy-outer/
 categories: intuition
 layout: intuition-post
 date: 2026-05-29
-
-content_or: |
-  To be added.
 
 
 

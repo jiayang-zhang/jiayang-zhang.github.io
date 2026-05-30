@@ -7,7 +7,7 @@
     } catch (e) {
       saved = null;
     }
-    return saved === 'en' || saved === 'or' ? saved : 'zh';
+    return saved === 'en' ? saved : 'zh';
   }
   function saveLanguage(lang) {
     try {
@@ -25,7 +25,7 @@
     });
   }
   function setLanguage(lang) {
-    if (lang !== 'en' && lang !== 'or') {
+    if (lang !== 'en') {
       lang = 'zh';
     }
     saveLanguage(lang);
