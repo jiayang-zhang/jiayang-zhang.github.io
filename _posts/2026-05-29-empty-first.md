@@ -75,7 +75,7 @@ content_zh: |
 
 
 content_en: |
-  Every time I travel, my mind goes quiet. Even when thoughts do come, they move through freely — no deadlines, no routines to maintain, nothing to hold onto. I didn't realize it until recently, but this is a clearing process. That's why coming home after a trip always brings a certain clarity and freshness. Something new gets in.
+  Every time I travel, my mind goes clear. Even when thoughts do come, they move through freely — no deadlines, no routines to maintain, nothing to hold onto. I didn't realize it until recently, but this is a clearing process. That's why coming home after a trip always brings a certain clarity and freshness. Something new gets in.
 
   This morning, two things I'd read a long time ago came back to me.
 
