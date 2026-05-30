@@ -48,7 +48,7 @@ content_zh: |
 
   这几件事发生在今年五月初，旅行回来之后。
 
-  在旅行之前，焦虑折磨着我。我用冥想找到了部分的根源，感受了那个来源，发现它不再成立了。但这只清掉了大概八成，焦虑还是会浮上来。更深的那个来源是什么，我不完全确定。或许我知道，但尘封太久，我也不愿意打开。
+  在旅行之前，焦虑折磨着我。我用冥想找到了部分的根源，感受了那个来源，发现它不再成立了。但这只清掉了大概八成，焦虑还是会浮上来。更深的那个来源是什么，我不完全确定。
 
   旅行回来后，那个新的感觉又出现了。我每次旅行最期待的一部分，就是回来之后那个感觉会出现。即使只存在几天到两周，我知道它会来。
 
@@ -134,7 +134,7 @@ content_en: |
 
   These things happened in early May of this year, after I came back from a trip.
 
-  Before the trip, anxiety had been wearing me down. Through meditation I found part of the source, sat with it, and realised it was no longer valid. But that only cleared about eighty percent of it. The anxiety still surfaced. The deeper source — I wasn't entirely sure what it was. Maybe I knew. But it had been sealed away for so long, and I wasn't ready to open it.
+  Before the trip, anxiety had been wearing me down. Through meditation I found part of the source, sat with it, and realised it was no longer valid. But that only cleared about eighty percent of it. The anxiety still surfaced. The deeper source — I wasn't entirely sure what it was.
   
   When I came back from the trip, that feeling returned. The one I look forward to most after every journey. It never stays long — a few days, maybe two weeks — but I always know it will come.
   
