@@ -1,0 +1,81 @@
+<style>
+.intuition-lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+.lang-switcher-btn {
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.lang-switcher-btn:hover,
+.lang-switcher-btn.active {
+  background: #1f6feb;
+  border-color: #1f6feb;
+  color: #ffffff;
+}
+.intuition-intro {
+  margin-bottom: 2rem;
+}
+.intuition-card-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 720px) {
+  .intuition-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.intuition-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.intuition-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+.intuition-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  display: block;
+  color: inherit;
+}
+.intuition-card-excerpt {
+  margin: 0 0 1rem;
+  color: rgba(0, 0, 0, 0.72);
+  line-height: 1.75;
+}
+.intuition-readmore {
+  text-decoration: none;
+  font-weight: 600;
+  color: #1f6feb;
+}
+.intuition-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.5rem;
+}
+.post-body {
+  line-height: 1.9;
+}
+.lang-block[data-lang] {
+  display: none;
+}
+.lang-block[data-lang="zh"] {
+  display: block;
+}
+</style>

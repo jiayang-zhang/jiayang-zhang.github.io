@@ -16,7 +16,9 @@ timezone: Europe/London
 
 title: Jiayang Zhang # the main title
 
-tagline: AI for Biomedicine PhD Student @ Imperial # it will display as the subtitle
+# tagline: AI for Biomedicine PhD Student @ Imperial # it will display as the subtitle
+
+tagline: I exist as a bridge, connecting two worlds, by all means. 
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.

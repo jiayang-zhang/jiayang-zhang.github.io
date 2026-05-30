@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+{% include intuition-style.html %}
+
+<div class="intuition-page-header">
+  {% include lang-switcher.html %}
+</div>
+
+<article class="intuition-card">
+  <h1 class="intuition-card-title">
+    <span class="lang-block" data-lang="zh">{{ page.title_zh | default: page.title }}</span>
+    <span class="lang-block" data-lang="or">{{ page.title_or | default: page.title_zh | default: page.title }}</span>
+    <span class="lang-block" data-lang="en">{{ page.title_en | default: page.title }}</span>
+  </h1>
+
+  <div class="intuition-post-meta">
+    <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+    {% if page.category %}
+      <span>{{ page.category }}</span>
+    {% endif %}
+  </div>
+
+  <div class="post-body">
+    <div class="lang-block" data-lang="zh">{{ page.content_zh | markdownify }}</div>
+    <div class="lang-block" data-lang="or">{{ page.content_or | default: page.content_zh | markdownify }}</div>
+    <div class="lang-block" data-lang="en">{{ page.content_en | markdownify }}</div>
+  </div>
+</article>
+
+<script src="{{ '/assets/js/intuition-lang-switch.js' | relative_url }}"></script>
