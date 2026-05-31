@@ -2,7 +2,7 @@
 title: 空了，新的才能进来
 title_zh: 空了，新的才能进来
 title_en: Empty First
-excerpt_zh: 昨天晚上我明白了，每次旅行时什么都不想 （或者即使在想，因为没有工作、没有日复一日的生活，念头来了就来，走了就走）这是一个清空的过程。所以每次旅行回来，回到日常环境，那个"新"的感觉会重新出现。
+excerpt_zh: “新”的感觉出现时是旷野感，清晰，看到生活以外的世界，无限的可能性，很宽。
 excerpt_en: Every time I travel, my mind goes clear — or even when thoughts do come, there's no work, no daily routine to maintain, so they arrive and leave on their own. It's a clearing process. That's why coming home after a trip always brings a certain freshness. That "new" feeling returns.
 permalink: /posts/empty-first/
 categories: intuition
