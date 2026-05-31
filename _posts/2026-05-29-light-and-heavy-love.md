@@ -5,7 +5,7 @@ title_en: Light and Heavy (3)
 excerpt_zh: 
   好和不好都在，光和壳都在，天赋和笨拙都在，你把这一切带过来，我看见了，你是真实的。
 excerpt_en: 
-permalink: /posts/light-and-heavy-inner/
+permalink: /posts/light-and-heavy-love/
 categories: intuition
 layout: intuition-post
 date: 2026-05-31
@@ -23,7 +23,7 @@ content_zh: |
   
   所以我爱我自己，不是因为任何条件，不是因为某些面被擦得光亮而爱，是真的 take me as I am。
   
-  我想到那个我爱的狗狗，不是因为任何条件，是想到他，没有任何原因的爱就会涌进来，就是因为他的存在。
+  我想到那个我爱的狗狗，不是因为任何条件，是想到他，没有任何原因的爱就会涌进来，是因为他的存在。
   
   爱一个人，也是真的 take them as they are。不是因为任何条件，不是因为任何优点，因为她他们就是她他们自己，独一无二的个体。
   
@@ -45,7 +45,7 @@ content_zh: |
   
   这真的太不可思议了。
   
-  那个时候脑海中冒出来一句话：Things I used to hate, I now love them, so much, so much, so so much love.
+  那个时候脑海中冒出来一句话：Things I used to hate, now I love them so much, so much, so so much love.
   
   那个光不被堵着，发光的样子。
   
@@ -57,7 +57,7 @@ content_zh: |
   
   我们本是大海，一切不过是波澜，感受这些波澜流过，穿过我们，完整我们。
   
-  道是什么，是你我感受到的自然流动。"道可道，非常道"，说得出来的，就不是真正的道了。Be fully present，"和其光，同其尘"，感受这其中的自然流动。
+  道是你我感受到的自然流动。"道可道，非常道"，说得出来的，就不是真正的道了。Be fully present，"和其光，同其尘"，感受这其中的自然流动。
   
   ##### <br> **题外话**
 
