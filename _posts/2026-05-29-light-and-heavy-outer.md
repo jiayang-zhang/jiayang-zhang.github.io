@@ -7,15 +7,6 @@ excerpt_zh:
 
 
 excerpt_en: 
-  This is the first piece in the Light and Heavy.
-
-  I can feel the weight each person carries — what kind of shell they're moving through the world with.
-
-  I can also see that every person has their own unique gift. Some are obvious, easy to find. Some are hidden, and only reveal themselves through lived experience. Even when I can't quite see it yet, I can feel that each person is distinct.
-
-  I believe you can too. Though I don't know if you believe that about yourself.
-  
-  I'm writing this using myself as an example. You're welcome to trust your own body and feelings as you read. Before you do, check in with your intention — and then choose whether or not to take any of this in.
 permalink: /posts/light-and-heavy-outer/
 categories: intuition
 layout: intuition-post
@@ -26,13 +17,9 @@ date: 2026-05-29
 content_zh: |
   这是轻和重的第一篇。
 
-  我能感受到每一个人的轻和重，那个重，是背着一个什么样的壳。
+  每一个人都有轻和重，轻是什么，那个重，是背着一个什么样的壳。
 
-  我能感受到每一个人都有自己独特的天赋。有些很明显，很容易找到。有些是藏着的，需要在事中寻。就算一时我看不到，我能感受到人和人之间的不同。
-
-  我相信你也可以。但我不知道你相不相信。
-
-  我写下来，用我自己作为例子。你可以选择去相信自己的身体和感受。
+  每一个人都有自己独特的天赋。有些很明显，很容易找到。有些是藏着的，需要在事中寻。
 
   <hr>
 
@@ -117,86 +104,4 @@ content_zh: |
 
 
 content_en: |
-
-  This is the first piece in the Light and Heavy.
-
-  I can feel the weight each person carries — what kind of shell they're moving through the world with.
-
-  I can also see that every person has their own unique gift. Some are obvious, easy to find. Some are hidden, and only reveal themselves through lived experience. Even when I can't quite see it yet, I can feel that each person is distinct.
-
-  I believe you can too. Though I don't know if you believe that about yourself.
-  
-  I'm writing this using myself as an example. You're welcome to trust your own body and feelings as you read. Before you do, check in with your intention — and then choose whether or not to take any of this in.
-
-  <hr>
-
-  These things happened in early May of this year, after I came back from a trip.
-
-  Before the trip, anxiety had been wearing me down. Through meditation I found part of the source, sat with it, and realised it was no longer valid. But that only cleared about eighty percent of it. The anxiety still surfaced. The deeper source — I wasn't entirely sure what it was.
-  
-  When I came back from the trip, that feeling returned. The one I look forward to most after every journey. It never stays long — a few days, maybe two weeks — but I always know it will come.
-  
-  This time was different. As it arrived, something started to become clear.
-  
-  I carry two layers. This piece is about the first layer: exploring from the inside out.
-
-  <hr>
-
-  #####  <br> **From the inside out: scanning**
-
-  For most of my life, I was in a constant state of scanning. My awareness was always reaching outward — tense, searching, exhausting. It was my nervous system doing its job, keeping me safe.
-
-  Walking into a room and sensing whether the atmosphere was right. Getting close to someone and knowing how they were doing that day. Reading whether I was in danger.
-  This is a gift. It is also armour.
-
-  #####  <br> **Flowing in from the outside: connecting**
-
-  The feeling that returned after my trip showed me something: I could turn the scanning off. I could open fully and let the world come in.
-
-  In nature, when I'm completely open, information flows inward on its own. It's light. I'm not analysing anything, not guarding against anything. Things just arrive, and I feel them.
-
-  The difference between the two: one is scanning under guard, testing the atmosphere, reading other people's emotions. The other is full reception — being with what is, right now.
-
-  #####  <br> **One thing to be careful of**
-
-  The first few times I tried this, it was overwhelming. The armour had been on for so long that taking it off and opening up completely was too much. Too much information at once. Heart racing, a kind of panic.
-
-  This is normal. Armour worn for years, suddenly removed, doesn't feel like freedom. It feels like exposure. The nervous system hasn't yet learned that it's safe without protection. Like eyes that have been in the dark for a long time — turning the light on doesn't hurt because the light is wrong. It just takes time to adjust.
-
-  So it's not about dropping the scanning and opening up all at once. It's slow, in small doses, with patience.
-
-  #####  <br> **The final version**
-
-  The goal isn't to have no armour. It's to be able to choose when to wear it and when to set it down.
-
-  The armour itself isn't wrong. Some situations call for it. Some relationships need it. The difference is that before, I wore it without thinking. Now, it's a conscious choice. I can feel when it's safe to take it off. I can feel when I need it back on.
-
-  The version of me I'm working toward is one who knows, in any situation, that her heart is safe. So the armour is no longer a necessity — it's an option. Whether I wear it or not, I am whole.
-
-  <hr>
-
-  #####  <br> **Connecting with others**
-
-  Connecting with someone else means bringing this state into the space between us. No scanning, no guarding. Just receiving. When I'm with someone, I'm actually there — not planning what to say next, not checking how they're evaluating me. Just seeing what they're like, right now.
-
-  People feel it. When someone is truly seen, nothing special needs to be said. They simply feel received.
-
-  But there's one condition: I can only offer what I already have. The more fully I accept myself, the more naturally that flows outward. So connecting with others and seeing yourself clearly — fully, without conditions — are the same thing.
-
-  #####  <br> **Two paths**
-  Each of us has two ways of knowing.
-
-  The first is direct knowing. Intuition, felt sense, physical response — that quiet certainty of "it's just like this." No analysis needed. You arrive there directly.
-  
-  The second is knowing through information. Tools, language, logic, systems. It needs a medium, a process, an interpretation.
-  
-  For me, the first path exists but isn't stable. It opens when things are quiet and closes when they're loud. The second I can use reliably, but I don't want to rely on it alone. I want to make the first path more consistent — not just available in nature, but accessible in ordinary life, whenever I get still enough to hear it.
-  
-  A useful inner compass: when making a choice, ask yourself whether life feels like it's expanding or contracting afterward.
-  
-  If it feels open, light, forward-moving — that's expansion. If it feels tight, retreating, closing in — that's contraction.
-  
-  Your body will tell you. You don't need much analysis.
-  
-  This is also why I wrote that on the Intuition page. 🌿
 ---

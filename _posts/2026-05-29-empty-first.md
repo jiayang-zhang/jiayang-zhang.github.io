@@ -3,7 +3,7 @@ title: 空了，新的才能进来
 title_zh: 空了，新的才能进来
 title_en: Empty First
 excerpt_zh: “新”的感觉出现时是旷野感，清晰，看到生活以外的世界，无限的可能性，很宽。
-excerpt_en: Every time I travel, my mind goes clear — or even when thoughts do come, there's no work, no daily routine to maintain, so they arrive and leave on their own. It's a clearing process. That's why coming home after a trip always brings a certain freshness. That "new" feeling returns.
+excerpt_en: 
 permalink: /posts/empty-first/
 categories: intuition
 layout: intuition-post
@@ -80,58 +80,5 @@ content_zh: |
 
 
 content_en: |
-  Every time I travel, my mind goes clear — or even when thoughts do come, there's no work, no daily routine to maintain, so they arrive and leave on their own. It's a clearing process. That's why coming home after a trip always brings a certain freshness. That "new" feeling returns.
-
-  This morning, two things I'd encountered before came back to me.
-
-  From Caigentan: "The songs of birds and insects are all transmissions of the heart. The colours of flowers and grass are nothing but texts of the Way."
-
-  This is the same feeling. Fully present.
-
-  How do you get there? A mind clear as sky, a chest open as a hollow, and in touching things, meaning everywhere. Anyone can. But only when the mind is empty first. Only then does anything new come in.
-
-  Borges wrote about a man named Funes who, after an accident, could forget nothing. He remembered every leaf on every tree, every time he had seen it. Borges writes: "With no effort, he had learned English, French, Portuguese and Latin. I suspect, however, that he was not very capable of thought. To think is to forget differences, generalize, make abstractions. In the teeming world of Funes, there were only details, almost immediate in their presence." Funes remembered everything and understood nothing. The connections we call insight — those only form in the space that forgetting creates.
-
-  Forgetting is a gift. Not thinking is a gift. Empty first, and then something real can enter.
-
-  #####  <br> **A way to check in**
-  I have a simple way of checking in with myself. When I'm not present, my eyes go flat. My thoughts loop without landing. It's obvious once I notice it. The most useful thing I've found is just to shift the frequency — interrupt the stare, break the loop. Travel does this automatically. So does stopping in the middle of the day and doing nothing for twenty minutes. No purpose. Just existing. And feeling your existence is also a purpose — so not even that. You know what I mean.
-
-  #####  <br> **What does the "new" feeling feel like?** 
-
-  When that feeling arrives, it's wide open. Clear. Like standing in an open field and seeing past the immediate edges of daily life — endless possibility, a sense of spaciousness. When I'm in a foggy state, I can only see ten metres ahead. Everything feels narrow.
-  
-  #####  <br> **What does the foggy state feel like?**
-
-  When I'm foggy, the noise inside is too loud and drowns everything else out. I might notice I'm tired, try to ground myself, and find I simply can't connect. That's a sign the method itself requires more energy than I have. Forcing groundedness when exhausted makes it harder, not easier. In that state, I have no brain power left. My lens contracts to the nearest ten metres. I haven't become smaller — I've just run out of fuel.
-
-  For a long time I kept myself going through willpower — maintaining a normal exterior while quietly exhausted inside. Willpower isn't a source of energy. It's a drain on it.
-
-  #####  <br> **Moving from foggy to open**
-  So I made a rule for myself: every workday, a fixed period of not holding it together. Even twenty minutes. No performing okayness, no maintaining anything for anyone. Just being there, unoccupied. Not meditating, not going into nature. Just existing.
-
-  A few things that don't count: spending those twenty minutes focused on work with a clear head — that's just a different kind of effort. Going to a park to decompress — if you go as the person who's still holding everything together, you're still holding everything together. I used to turn rest itself into a task. "I need to recover" is still a goal. Real rest has no goal.
-
-  Twenty minutes. No agenda. Not to recharge, not to feel better, not for anything. Just in.
-  
-  #####  <br> **To bring it together**
-
-  When I travel, my mind clears and space opens up. In daily life, too many thoughts pile up, the space disappears, and with it the sense of possibility.
-
-  What I've found is that deliberately trying to let go takes just as much energy as being stuck. All those years of structured meditation — I was efforting my way through relaxation. Anything done with a goal is still effort, including effortful rest.
-
-  Twenty minutes a day where thoughts just pass through — not held, not pushed away, moving on their own. It's not a method. It's a state. When there's no purpose, the mind flows by itself.
-
-  You can hear this and nod along. But you only really know it when your body has felt it.
-
-  #####  <br> **I think you've felt it too**
-
-  It's a beautiful feeling.
-
-  Everything you look at feels warm, full of light, clear and bright.
-
-  For those passing by, there is some love in you that quietly shares with them. Just warmth, spilling over naturally.
-
-  You feel the flowers, the grass, the trees, every living thing quietly unfolding — and you're there with them, truly present, fully alive.
 
 ---

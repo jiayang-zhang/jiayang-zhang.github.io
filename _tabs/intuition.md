@@ -15,21 +15,11 @@ permalink: /intuition/
 <div class="intuition-intro">
   <div class="lang-block" data-lang="zh">
     <!-- <h1>INTUITION</h1> -->
-    <p>在读以下任何内容之前，我希望你带着自己的觉察、思考和感受。<br><br>
-    如果读的过程中有什么浮现出来，不确定的时候，问自己一个问题：这个念头或感受背后的来源(intention)是什么。<br><br>
-    去感受那个来源。如果它是开阔的、积极的、让你更有能量、更有爱的，那它在往对的方向走。<br><br>
-    读完之后，如果你不确定这些内容对你意味着什么，同样的方式：去感受它给你带来的是什么。如果它让你更积极、打开、有爱，那它可以被接收进来。<br><br>
-    如果还是不确定，没关系。选择你的开阔状态认同的那条路，给时间时间。<br><br>
-    这里没有宗教，没有包装，一切如是。我尽量做到这一点。如果你还是不确定，回到同一个问题：感受来源(intention)，感受你自己的来源，信任你的身体和感受。是宽还是窄，带着自己的觉察和选择继续。</p>
+    <p>理解感受的来源，带着觉察做选择。</p>
   </div>
   <div class="lang-block" data-lang="en">
     <!-- <h1>INTUITION</h1> -->
-    <p>Before you read anything here, I invite you to bring your own awareness, your own thinking, your own feeling.<br><br> 
-    If something comes up as you read, a thought, a reaction, an uncertainty, ask yourself one question: where is this coming from? What is the intention behind it?<br><br>
-    Sit with that source. If it feels open and loving, if it moves you toward something better, then it is going in the right direction. <br><br>
-    After reading, if you are unsure what to make of something, use the same check: what does this give you, if you take it in? If it opens you up, gives you more energy, more love, more clarity, it is for you. You can let it in. <br><br>
-    And if you are still not sure, that is okay. Choose the path you recognise, simply step away, and give time the time. <br><br>
-    There is no religion here, no packaging. Just things as they are. I try to keep it that way. If you are ever uncertain, come back to the same question: reason on the intention. Trust your body, trust what you feel. Notice whether it widens you or narrows you, and choose from there.</p>
+    <p>Sit with the intention and awareness. </p> 
   </div>
 </div>
 
