@@ -1,13 +1,13 @@
 ---
 title: 答案
 title_zh: 答案
-title_en: Essence
+title_en: What do I want?
 excerpt_zh: 
   这些体验的本质是不变的，外界世界的变化，是换了个角色。
 
 
 excerpt_en: 
-permalink: /posts/essence/
+permalink: /posts/what-do-I-want/
 categories: intuition
 layout: intuition-post
 date: 2026-07-16
