@@ -3,7 +3,7 @@ title: 观察式关系
 title_zh: 观察式关系
 title_en: An observational relationship
 excerpt_zh: 
-    就像抓在悬崖上，她他们给你，你就抓得更紧；她他们不给，你就掉下去。
+    意识到这是自己在要什么东西，没有距离，而观察式关系，是看她他们做何反应，留有距离，没有索取，通过他人的样子学习和反思。
 
 excerpt_en: 
 
