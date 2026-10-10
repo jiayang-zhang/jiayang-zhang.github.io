@@ -6,28 +6,31 @@ import type { Category, WatchlistCompany } from "./types";
 
 // CIKs and filer types verified against EDGAR (company_tickers.json and the
 // submissions API) on 2026-10-10.
+// registrySponsors: lead-sponsor names as they appear on ClinicalTrials.gov,
+// checked the same day. The first is the search term; a study is kept only if
+// its lead sponsor contains one of them (so "Merck KGaA" never matches MRK).
 const pharma: WatchlistCompany[] = [
-  { ticker: "LLY", name: "Eli Lilly", cik: 59478, filerType: "8-K", aliases: ["Eli Lilly and Company", "Lilly", "Loxo Oncology"] },
-  { ticker: "NVO", name: "Novo Nordisk", cik: 353278, filerType: "6-K", aliases: ["Novo Nordisk A/S"] },
-  { ticker: "MRK", name: "Merck & Co.", cik: 310158, filerType: "8-K", aliases: ["Merck", "MSD", "Merck Sharp & Dohme", "Prometheus Biosciences"] },
-  { ticker: "PFE", name: "Pfizer", cik: 78003, filerType: "8-K", aliases: ["Pfizer Inc.", "Seagen"] },
-  { ticker: "AZN", name: "AstraZeneca", cik: 901832, filerType: "6-K", aliases: ["AstraZeneca PLC", "Alexion"] },
-  { ticker: "ABBV", name: "AbbVie", cik: 1551152, filerType: "8-K", aliases: ["AbbVie Inc.", "Allergan", "Cerevel Therapeutics"] },
-  { ticker: "BMY", name: "Bristol Myers Squibb", cik: 14272, filerType: "8-K", aliases: ["Bristol-Myers Squibb", "BMS", "Celgene", "Karuna Therapeutics"] },
-  { ticker: "GSK", name: "GSK", cik: 1131399, filerType: "6-K", aliases: ["GSK plc", "GlaxoSmithKline", "ViiV Healthcare"] },
+  { ticker: "LLY", name: "Eli Lilly", cik: 59478, filerType: "8-K", aliases: ["Eli Lilly and Company", "Lilly", "Loxo Oncology"], registrySponsors: ["Eli Lilly"] },
+  { ticker: "NVO", name: "Novo Nordisk", cik: 353278, filerType: "6-K", aliases: ["Novo Nordisk A/S"], registrySponsors: ["Novo Nordisk"] },
+  { ticker: "MRK", name: "Merck & Co.", cik: 310158, filerType: "8-K", aliases: ["Merck", "MSD", "Merck Sharp & Dohme", "Prometheus Biosciences"], registrySponsors: ["Merck Sharp & Dohme"] },
+  { ticker: "PFE", name: "Pfizer", cik: 78003, filerType: "8-K", aliases: ["Pfizer Inc.", "Seagen"], registrySponsors: ["Pfizer"] },
+  { ticker: "AZN", name: "AstraZeneca", cik: 901832, filerType: "6-K", aliases: ["AstraZeneca PLC", "Alexion"], registrySponsors: ["AstraZeneca"] },
+  { ticker: "ABBV", name: "AbbVie", cik: 1551152, filerType: "8-K", aliases: ["AbbVie Inc.", "Allergan", "Cerevel Therapeutics"], registrySponsors: ["AbbVie"] },
+  { ticker: "BMY", name: "Bristol Myers Squibb", cik: 14272, filerType: "8-K", aliases: ["Bristol-Myers Squibb", "BMS", "Celgene", "Karuna Therapeutics"], registrySponsors: ["Bristol-Myers Squibb", "Bristol Myers Squibb"] },
+  { ticker: "GSK", name: "GSK", cik: 1131399, filerType: "6-K", aliases: ["GSK plc", "GlaxoSmithKline", "ViiV Healthcare"], registrySponsors: ["GlaxoSmithKline", "GSK"] },
 ];
 
 const biotech: WatchlistCompany[] = [
-  { ticker: "ALNY", name: "Alnylam", cik: 1178670, filerType: "8-K", aliases: ["Alnylam Pharmaceuticals"] },
-  { ticker: "ARGX", name: "argenx", cik: 1697862, filerType: "6-K", aliases: ["argenx SE", "argenx N.V."] },
-  { ticker: "INSM", name: "Insmed", cik: 1104506, filerType: "8-K", aliases: ["Insmed Incorporated"] },
-  { ticker: "BBIO", name: "BridgeBio", cik: 1743881, filerType: "8-K", aliases: ["BridgeBio Pharma", "Eidos Therapeutics", "QED Therapeutics"] },
-  { ticker: "IONS", name: "Ionis", cik: 874015, filerType: "8-K", aliases: ["Ionis Pharmaceuticals", "Isis Pharmaceuticals", "Akcea Therapeutics"] },
-  { ticker: "SRPT", name: "Sarepta", cik: 873303, filerType: "8-K", aliases: ["Sarepta Therapeutics", "AVI BioPharma"] },
-  { ticker: "MDGL", name: "Madrigal", cik: 1157601, filerType: "8-K", aliases: ["Madrigal Pharmaceuticals"] },
-  { ticker: "VKTX", name: "Viking Therapeutics", cik: 1607678, filerType: "8-K", aliases: ["Viking"] },
-  { ticker: "CRSP", name: "CRISPR Therapeutics", cik: 1674416, filerType: "8-K", aliases: ["CRISPR Therapeutics AG"] },
-  { ticker: "NTLA", name: "Intellia", cik: 1652130, filerType: "8-K", aliases: ["Intellia Therapeutics"] },
+  { ticker: "ALNY", name: "Alnylam", cik: 1178670, filerType: "8-K", aliases: ["Alnylam Pharmaceuticals"], registrySponsors: ["Alnylam"] },
+  { ticker: "ARGX", name: "argenx", cik: 1697862, filerType: "6-K", aliases: ["argenx SE", "argenx N.V."], registrySponsors: ["argenx"] },
+  { ticker: "INSM", name: "Insmed", cik: 1104506, filerType: "8-K", aliases: ["Insmed Incorporated"], registrySponsors: ["Insmed"] },
+  { ticker: "BBIO", name: "BridgeBio", cik: 1743881, filerType: "8-K", aliases: ["BridgeBio Pharma", "Eidos Therapeutics", "QED Therapeutics"], registrySponsors: ["BridgeBio"] },
+  { ticker: "IONS", name: "Ionis", cik: 874015, filerType: "8-K", aliases: ["Ionis Pharmaceuticals", "Isis Pharmaceuticals", "Akcea Therapeutics"], registrySponsors: ["Ionis"] },
+  { ticker: "SRPT", name: "Sarepta", cik: 873303, filerType: "8-K", aliases: ["Sarepta Therapeutics", "AVI BioPharma"], registrySponsors: ["Sarepta"] },
+  { ticker: "MDGL", name: "Madrigal", cik: 1157601, filerType: "8-K", aliases: ["Madrigal Pharmaceuticals"], registrySponsors: ["Madrigal"] },
+  { ticker: "VKTX", name: "Viking Therapeutics", cik: 1607678, filerType: "8-K", aliases: ["Viking"], registrySponsors: ["Viking Therapeutics"] },
+  { ticker: "CRSP", name: "CRISPR Therapeutics", cik: 1674416, filerType: "8-K", aliases: ["CRISPR Therapeutics AG"], registrySponsors: ["CRISPR Therapeutics"] },
+  { ticker: "NTLA", name: "Intellia", cik: 1652130, filerType: "8-K", aliases: ["Intellia Therapeutics"], registrySponsors: ["Intellia"] },
 ];
 
 export const dashboardConfig = {
@@ -87,6 +90,12 @@ export const dashboardConfig = {
   catalysts: {
     lookAheadDays: 90,
     includeRegistryEstimatedReadouts: true,
+    // Past events stay visible, labelled overdue, for this long.
+    overdueGraceDays: 30,
+    highlightWithinDays: 7,
+    // How long a moved date keeps its "date changed" label.
+    dateChangedLabelDays: 30,
+    pageSize: 25,
   },
 
   display: {

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "preact/hooks";
 import type { AdminSession } from "../../../shared/types";
 import { ApiError, type Api, type RefreshResult } from "../api";
+import { CatalystAdmin } from "./CatalystAdmin";
 import { ModuleBoundary, ModuleCard } from "./ModuleCard";
 
 type SessionState = { phase: "checking" } | { phase: "signed-out" } | { phase: "signed-in"; session: AdminSession };
 
 function RefreshButton({ label, run }: { label: string; run: () => Promise<RefreshResult> }) {
+  const unit = label.includes("registry") ? "entries" : "tickers";
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
@@ -14,7 +16,7 @@ function RefreshButton({ label, run }: { label: string; run: () => Promise<Refre
     setMessage(null);
     try {
       const r = await run();
-      setMessage(r.failed.length === 0 ? `Updated ${r.updated} tickers.` : `Updated ${r.updated}; failed: ${r.failed.join(", ")}.`);
+      setMessage(r.failed.length === 0 ? `Updated ${r.updated} ${unit}.` : `Updated ${r.updated}; failed: ${r.failed.join(", ")}.`);
     } catch (err) {
       const status = err instanceof ApiError ? err.status : null;
       setMessage(status === 401 ? "Session expired. Sign in again." : status === 429 ? "Too many requests. Wait a minute." : "Refresh failed.");
@@ -65,6 +67,8 @@ export function AdminApp({ api }: { api: Api }) {
             <h3 class="bt-subhead">Manual refresh</h3>
             <RefreshButton label="Refresh prices now" run={api.refreshMarket} />
             <RefreshButton label="Refresh market caps" run={api.refreshProfiles} />
+            <RefreshButton label="Sync registry readouts" run={api.refreshCatalysts} />
+            <CatalystAdmin api={api} />
           </div>
         )}
       </ModuleCard>

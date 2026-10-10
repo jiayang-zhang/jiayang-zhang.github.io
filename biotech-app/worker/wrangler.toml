@@ -22,7 +22,8 @@ migrations_dir = "migrations"
 [triggers]
 # UTC. The price job covers 09:30-16:00 New York in both DST states and skips
 # itself outside the session, apart from one run after the close.
-crons = ["*/5 13-21 * * 1-5", "7 12 * * 1-5"]
+# The catalyst job syncs ClinicalTrials.gov once an hour.
+crons = ["*/5 13-21 * * 1-5", "7 12 * * 1-5", "23 * * * *"]
 
 [[ratelimits]]
 name = "WRITE_LIMITER"

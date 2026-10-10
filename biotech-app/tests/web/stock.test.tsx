@@ -29,7 +29,7 @@ const snapshot = (over: Partial<MarketSnapshot> = {}): MarketSnapshot => ({
   ...over,
 });
 
-const api = (market: Api["market"]): Api => ({ market, session: vi.fn(), refreshMarket: vi.fn(), refreshProfiles: vi.fn(), loginUrl: (r) => `https://api.test/admin/login?return=${r}` }) as Api;
+const api = (market: Api["market"]): Api => ({ market, session: vi.fn(), refreshMarket: vi.fn(), refreshProfiles: vi.fn(), refreshCatalysts: vi.fn(), adminCatalysts: vi.fn().mockResolvedValue({ items: [] }), loginUrl: (r) => `https://api.test/admin/login?return=${r}` }) as Api;
 
 const companyTickers = () => {
   const bodies = document.querySelectorAll("tbody");

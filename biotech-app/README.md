@@ -2,7 +2,7 @@
 
 Pharmaceutical and biotech investment dashboard served at `/biotech` on jiayangzh.com, with an admin area at `/biotech/admin`.
 
-**Status: Phase 1 of 3.** Built and tested: shared foundations and Module A (Stock Performance Tracker). Not built yet: Module C (Catalyst Calendar, Phase 2) and Module B (Clinical Trial Intelligence Feed, Phase 3).
+**Status: Phase 2 of 3.** Built and tested: shared foundations, Module A (Stock Performance Tracker) and Module C (Catalyst Calendar). Not built yet: Module B (Clinical Trial Intelligence Feed, Phase 3).
 
 ## Architecture
 
@@ -45,6 +45,7 @@ Checks: `npm run typecheck`, `npm test`, `npm run build && npm run check:bundle`
 |---|---|---|
 | Cloudflare (zone `jiayangzh.com` must be on Cloudflare DNS) | Worker, D1, Access | none in the repo; `wrangler login` |
 | Finnhub | Quotes and market cap | `FINNHUB_API_KEY` |
+| ClinicalTrials.gov | Estimated readouts | none needed |
 
 ### 2. Database and Worker
 
@@ -100,17 +101,41 @@ Peak is 20 calls in one minute against a free-tier limit of about 60 a minute. A
 - **Market cap** is shown only when Finnhub reports it in USD. No currency conversion is done, so ADRs reported in another currency show N/A. ETFs have none.
 - **Holidays** are not modelled. On an exchange holiday the job polls and gets unchanged quotes.
 
+## Catalyst calendar
+
+Shows events for watchlist companies from 30 days back (labelled overdue) to 90 days ahead.
+
+| Event type | Where it comes from |
+|---|---|
+| PDUFA target action dates | Manual entry only. No free API publishes them reliably. |
+| FDA advisory committee meetings | Manual entry only. |
+| Expected data readouts | Manual entry, plus estimates generated from ClinicalTrials.gov |
+
+**Registry estimates.** Once an hour the Worker asks ClinicalTrials.gov (API v2, no key) for each company's Phase II and III trials whose primary completion date falls in the window: 18 requests an hour, about 430 a day. Checked against the live API on 2026-10-10 this produced 90 entries for 14 of the 18 companies.
+
+- Entries are labelled Estimated and state that the primary completion date is not a results date.
+- The registry often gives only a month. Those entries are shown as a whole-month range.
+- When a registry date moves, the entry shows "Date changed" with the old date for 30 days. When a trial leaves the window it is removed. If a company's request fails, its entries are left as they were.
+- Phase I/II trials are excluded unless `clinical.includePhase1_2Trials` is set.
+- Only trials where the company is lead sponsor are found. Partnered trials led by another sponsor, and trials under a subsidiary name missing from `registrySponsors` in `shared/config.ts`, are not.
+- A manual entry carrying the same NCT number replaces the estimate for that trial.
+
+**Manual entries** are managed at `/biotech/admin` and stored in D1. Required fields: company, programme, event type, date, verification status. Notes are admin-only and never sent to visitors. Saving an entry sets its "last verified" date. Registry entries cannot be edited or deleted directly.
+
+The public feed is cached by browsers for 60 seconds, so an admin change can take up to a minute to appear on `/biotech`.
+
 ### Not yet verified against a real Finnhub key
 
 Everything above ran against mock data and unit-tested fakes. Before relying on it, confirm with your key that the free tier returns `/quote` for all 20 tickers including the ADRs and ETFs, that `/stock/profile2` returns market cap, and which currency it reports for NVO, AZN, GSK and ARGX. Finnhub's free tier is described as personal use; check its terms for a public site.
 
 ### Cloudflare limits
 
-Workers free plan: 100,000 requests a day and 10 ms CPU per invocation. Module A fits. Parsing filings in Phase 3 may need the paid plan (5 USD a month). D1 free plan: 5 million row reads and 100,000 writes a day; this module writes about 3,200 rows a day.
+Workers free plan: 100,000 requests a day and 10 ms CPU per invocation. Module A fits. Parsing filings in Phase 3 may need the paid plan (5 USD a month). D1 free plan: 5 million row reads and 100,000 writes a day; the price job writes about 3,200 rows a day and the catalyst sync up to about 2,200.
 
 ## Requires manual input or later work
 
-- Modules B and C are not implemented.
+- Module B is not implemented.
+- PDUFA dates and advisory committee meetings must be entered by hand.
 - Cloudflare Access, D1 and the Finnhub key must be set up by hand as described above.
 - Market cap for foreign-currency ADRs, exchange holidays and split adjustment of the sparkline (see above).
 - The in-memory rate limiter is a per-isolate fallback; the `WRITE_LIMITER` binding in `wrangler.toml` is the real limit.

@@ -7,12 +7,15 @@ import { listVar, type Env } from "./env";
 import { UpstreamError } from "./lib/http";
 import { allowRequest } from "./lib/ratelimit";
 import { createMarketDataProvider } from "./providers";
+import { createClinicalTrialsProvider, type RegistryProvider } from "./providers/clinicaltrials";
 import type { MarketDataProvider } from "./providers/types";
+import { createCatalyst, deleteCatalyst, getCatalystFeed, listAdminCatalysts, parseCatalystInput, syncRegistryCatalysts, updateCatalyst } from "./services/catalysts";
 import { getSnapshot, refreshPrices, refreshProfiles } from "./services/market";
 
 export interface AppDeps {
   auth?: AuthDeps;
   provider?: (env: Env) => MarketDataProvider;
+  registry?: () => RegistryProvider;
 }
 
 type AppEnv = { Bindings: Env; Variables: { session: AdminSession } };
@@ -23,6 +26,8 @@ const SAFE_METHODS = new Set(["GET", "HEAD", "OPTIONS"]);
 export function createApp(deps: AppDeps = {}) {
   const app = new Hono<AppEnv>();
   const provider = (env: Env) => (deps.provider ?? createMarketDataProvider)(env);
+  const registry = () => (deps.registry ?? createClinicalTrialsProvider)();
+  const nowSeconds = () => Math.floor(Date.now() / 1000);
 
   app.use(
     "*",
@@ -49,6 +54,12 @@ export function createApp(deps: AppDeps = {}) {
     const snapshot = await getSnapshot(c.env.DB, c.env.DATA_MODE === "mock" ? "mock" : "live");
     c.header("Cache-Control", "public, max-age=30");
     return c.json(snapshot);
+  });
+
+  app.get("/v1/catalysts", async (c) => {
+    const feed = await getCatalystFeed(c.env.DB);
+    c.header("Cache-Control", "public, max-age=60");
+    return c.json(feed);
   });
 
   // ---- Admin: every route below requires a verified administrator session ----
@@ -101,6 +112,38 @@ export function createApp(deps: AppDeps = {}) {
   app.post("/admin/refresh/profiles", async (c) => {
     const result = await refreshProfiles(c.env.DB, provider(c.env));
     await writeAudit(c.env.DB, Math.floor(Date.now() / 1000), c.get("session").email, "refresh.profiles", `updated ${result.updated}, failed ${result.failed.length}`);
+    return c.json(result);
+  });
+
+  app.get("/admin/catalysts", async (c) => c.json({ items: await listAdminCatalysts(c.env.DB) }));
+
+  app.post("/admin/catalysts", async (c) => {
+    const parsed = parseCatalystInput(await c.req.json().catch(() => null));
+    if (!parsed.ok) return c.json({ error: "invalid", fields: parsed.fields }, 400);
+    const created = await createCatalyst(c.env.DB, parsed.value);
+    await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, "catalyst.create", created.id);
+    return c.json(created, 201);
+  });
+
+  app.put("/admin/catalysts/:id", async (c) => {
+    const parsed = parseCatalystInput(await c.req.json().catch(() => null));
+    if (!parsed.ok) return c.json({ error: "invalid", fields: parsed.fields }, 400);
+    const result = await updateCatalyst(c.env.DB, c.req.param("id"), parsed.value);
+    if (!result.ok) return c.json({ error: result.reason }, result.reason === "not_found" ? 404 : 409);
+    await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, "catalyst.update", result.catalyst.id);
+    return c.json(result.catalyst);
+  });
+
+  app.delete("/admin/catalysts/:id", async (c) => {
+    const result = await deleteCatalyst(c.env.DB, c.req.param("id"));
+    if (!result.ok) return c.json({ error: result.reason }, result.reason === "not_found" ? 404 : 409);
+    await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, "catalyst.delete", result.catalyst.id);
+    return c.json({ ok: true });
+  });
+
+  app.post("/admin/refresh/catalysts", async (c) => {
+    const result = await syncRegistryCatalysts(c.env.DB, registry());
+    await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, "refresh.catalysts", `updated ${result.updated}, removed ${result.removed}, failed ${result.failed.length}`);
     return c.json(result);
   });
 

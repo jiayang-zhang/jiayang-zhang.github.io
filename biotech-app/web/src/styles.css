@@ -376,6 +376,187 @@ html[data-mode="dark"] .biotech-app {
   margin-bottom: 0.4rem;
 }
 
+/* ---- Catalyst calendar ---- */
+
+.biotech-app .bt-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.biotech-app .bt-cat-item {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 0.15rem 0.75rem;
+  margin: 0;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--bt-border);
+  border-left: 3px solid transparent;
+}
+.biotech-app .bt-cat-item--imminent {
+  border-left-color: var(--bt-accent);
+  background: var(--bt-surface);
+}
+.biotech-app .bt-cat-item--overdue {
+  border-left-color: var(--bt-warn-text);
+}
+
+.biotech-app .bt-cat-when {
+  display: flex;
+  flex-direction: column;
+  font-variant-numeric: tabular-nums;
+}
+.biotech-app .bt-cat-date {
+  font-weight: 600;
+}
+.biotech-app .bt-cat-count {
+  color: var(--bt-muted);
+  font-size: 0.75rem;
+}
+
+.biotech-app .bt-cat-main {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.biotech-app .bt-cat-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.4rem;
+}
+.biotech-app .bt-cat-head .bt-cat-mark,
+.biotech-app .bt-cat-head .bt-tag {
+  margin: 0;
+}
+.biotech-app .bt-cat-src,
+.biotech-app .bt-cat-note {
+  margin: 0.1rem 0 0;
+  color: var(--bt-muted);
+  font-size: 0.72rem;
+}
+.biotech-app .bt-cat-src a {
+  color: var(--bt-accent);
+}
+
+.biotech-app .bt-badge {
+  display: inline-block;
+  padding: 0 0.35rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.biotech-app .bt-type--pdufa {
+  color: var(--bt-pharma);
+}
+.biotech-app .bt-type--readout {
+  color: var(--bt-initiation);
+}
+.biotech-app .bt-type--adcom {
+  color: var(--bt-biotech);
+}
+.biotech-app .bt-status--confirmed {
+  color: var(--bt-success);
+}
+.biotech-app .bt-status--estimated,
+.biotech-app .bt-status--unverified {
+  color: var(--bt-muted);
+}
+.biotech-app .bt-status--unverified {
+  border-style: dashed;
+}
+.biotech-app .bt-tag--soon {
+  border-color: var(--bt-accent);
+  color: var(--bt-accent);
+}
+
+.biotech-app .bt-more {
+  margin-top: 0.5rem;
+}
+
+/* ---- Admin forms ---- */
+
+.biotech-app .bt-admin-section {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--bt-border);
+}
+.biotech-app .bt-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+}
+.biotech-app .bt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.biotech-app .bt-field label {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.biotech-app .bt-field input,
+.biotech-app .bt-field select,
+.biotech-app .bt-field textarea {
+  width: 100%;
+  min-height: 2rem;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--bt-border);
+  border-radius: 4px;
+  background: var(--bt-bg);
+  color: var(--bt-text);
+  font: inherit;
+}
+.biotech-app .bt-field [aria-invalid="true"] {
+  border-color: var(--bt-failure);
+}
+.biotech-app .bt-field input:focus-visible,
+.biotech-app .bt-field select:focus-visible,
+.biotech-app .bt-field textarea:focus-visible {
+  outline: 2px solid var(--bt-accent);
+  outline-offset: 1px;
+}
+.biotech-app .bt-field__error {
+  color: var(--bt-failure);
+  font-size: 0.72rem;
+}
+.biotech-app .bt-form__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.biotech-app .bt-chip--primary {
+  border-color: var(--bt-accent);
+  font-weight: 700;
+}
+.biotech-app .bt-admin-list {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+.biotech-app .bt-admin-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--bt-border);
+}
+.biotech-app .bt-admin-list__text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.biotech-app .bt-admin-list__actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
 /* Narrow screens: drop secondary columns; the category stays visible as the colour mark beside each ticker. */
 @media (max-width: 640px) {
   .biotech-app .bt-table .bt-secondary {
@@ -393,6 +574,14 @@ html[data-mode="dark"] .biotech-app {
   }
   .biotech-app .bt-card__body {
     padding: 0.5rem 0.4rem;
+  }
+  .biotech-app .bt-cat-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .biotech-app .bt-cat-when {
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: baseline;
   }
   .biotech-app .bt-row--benchmark .bt-tag:not(.bt-tag--warn) {
     display: none;
