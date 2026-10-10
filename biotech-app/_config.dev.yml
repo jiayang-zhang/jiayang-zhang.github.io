@@ -1,0 +1,3 @@
+# Local development override: jekyll s --config _config.yml,biotech-app/_config.dev.yml
+biotech:
+  api_base: "http://localhost:8787"

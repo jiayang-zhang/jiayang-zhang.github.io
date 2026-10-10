@@ -1,0 +1,6 @@
+{%- comment -%} Loads the biotech dashboard bundle. Included only by the /biotech pages. {%- endcomment -%}
+<link rel="stylesheet" href="{{ '/assets/biotech/app.css' | relative_url }}">
+<div id="{{ include.root }}" data-api-base="{{ site.biotech.api_base }}">
+  <noscript>This dashboard needs JavaScript.</noscript>
+</div>
+<script defer src="{{ '/assets/biotech/app.js' | relative_url }}"></script>

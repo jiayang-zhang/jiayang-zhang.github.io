@@ -1,0 +1,32 @@
+{
+  "name": "biotech-dashboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-web.mjs",
+    "dev:web": "node scripts/build-web.mjs --watch",
+    "dev:worker": "wrangler dev --config worker/wrangler.toml --port 8787 --local-upstream localhost:8787",
+    "deploy:worker": "wrangler deploy --config worker/wrangler.toml",
+    "migrate:local": "wrangler d1 migrations apply biotech --local --config worker/wrangler.toml",
+    "migrate:remote": "wrangler d1 migrations apply biotech --remote --config worker/wrangler.toml",
+    "typecheck": "tsc -p tsconfig.worker.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "test": "vitest run",
+    "check:bundle": "node scripts/check-bundle.mjs"
+  },
+  "dependencies": {
+    "hono": "^4.13.13",
+    "jose": "^6.2.12",
+    "preact": "^11.0.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261010.1",
+    "@testing-library/preact": "^3.2.4",
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "jsdom": "^30.1.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3",
+    "wrangler": "^4.149.0"
+  }
+}

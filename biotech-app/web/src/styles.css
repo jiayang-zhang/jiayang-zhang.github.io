@@ -1,0 +1,400 @@
+/* Every rule is scoped under .biotech-app so no other page is affected. */
+
+/* The dashboard needs the full content width. These two rules match only a
+   page that contains the dashboard, and this stylesheet loads only there. */
+main:has(.biotech-app) {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+main:has(.biotech-app) ~ #panel-wrapper {
+  display: none;
+}
+
+.biotech-app {
+  --bt-bg: #ffffff;
+  --bt-surface: #f6f7f9;
+  --bt-border: #d5d9e0;
+  --bt-text: #161a21;
+  --bt-muted: #5a6372;
+  --bt-accent: #1f5fbf;
+  --bt-up: #0b7a3b;
+  --bt-down: #c02626;
+  --bt-warn-bg: #fff3cd;
+  --bt-warn-text: #6b4a00;
+  --bt-pharma: #6d3fc4;
+  --bt-biotech: #0b7285;
+  --bt-success: #0b7a3b;
+  --bt-failure: #c02626;
+  --bt-initiation: #1f5fbf;
+
+  color: var(--bt-text);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  max-width: 100%;
+  min-width: 0;
+}
+
+html[data-mode="dark"] .biotech-app {
+  --bt-bg: #14171c;
+  --bt-surface: #1c2027;
+  --bt-border: #333a46;
+  --bt-text: #e6e9ee;
+  --bt-muted: #9aa4b2;
+  --bt-accent: #7fb0ff;
+  --bt-up: #4ccb81;
+  --bt-down: #ff7b7b;
+  --bt-warn-bg: #4a3a00;
+  --bt-warn-text: #ffe08a;
+  --bt-pharma: #b79cff;
+  --bt-biotech: #5ecfe0;
+  --bt-success: #4ccb81;
+  --bt-failure: #ff7b7b;
+  --bt-initiation: #7fb0ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) .biotech-app {
+    --bt-bg: #14171c;
+    --bt-surface: #1c2027;
+    --bt-border: #333a46;
+    --bt-text: #e6e9ee;
+    --bt-muted: #9aa4b2;
+    --bt-accent: #7fb0ff;
+    --bt-up: #4ccb81;
+    --bt-down: #ff7b7b;
+    --bt-warn-bg: #4a3a00;
+    --bt-warn-text: #ffe08a;
+    --bt-pharma: #b79cff;
+    --bt-biotech: #5ecfe0;
+    --bt-success: #4ccb81;
+    --bt-failure: #ff7b7b;
+    --bt-initiation: #7fb0ff;
+  }
+}
+
+/* Alternative market convention: red for gains, green for losses. */
+.biotech-app.bt-conv--red-up .bt-trend--up {
+  color: var(--bt-down);
+}
+.biotech-app.bt-conv--red-up .bt-trend--down {
+  color: var(--bt-up);
+}
+
+.biotech-app *,
+.biotech-app *::before,
+.biotech-app *::after {
+  box-sizing: border-box;
+}
+
+.biotech-app .bt-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.biotech-app .bt-card {
+  background: var(--bt-bg);
+  border: 1px solid var(--bt-border);
+  border-radius: 6px;
+  min-width: 0;
+}
+
+.biotech-app .bt-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--bt-surface);
+  border-bottom: 1px solid var(--bt-border);
+  border-radius: 6px 6px 0 0;
+}
+
+.biotech-app .bt-card__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.25rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.biotech-app .bt-card__title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.biotech-app .bt-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--bt-muted);
+  font-size: 0.75rem;
+}
+
+.biotech-app .bt-card__body {
+  padding: 0.5rem 0.6rem 0.6rem;
+}
+
+.biotech-app .bt-state {
+  margin: 0;
+  padding: 1rem 0.5rem;
+  color: var(--bt-muted);
+  text-align: center;
+}
+.biotech-app .bt-state p {
+  margin: 0 0 0.5rem;
+}
+.biotech-app .bt-state--error {
+  color: var(--bt-failure);
+}
+
+.biotech-app .bt-banner {
+  margin: 0 0 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--bt-warn-text);
+  border-radius: 4px;
+  background: var(--bt-warn-bg);
+  color: var(--bt-warn-text);
+}
+
+.biotech-app .bt-session {
+  margin: 0 0 0.5rem;
+  color: var(--bt-muted);
+  font-size: 0.75rem;
+}
+
+.biotech-app .bt-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--bt-muted);
+}
+.biotech-app .bt-dot--open {
+  background: var(--bt-up);
+}
+
+.biotech-app .bt-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.biotech-app .bt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.9rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--bt-border);
+  border-radius: 4px;
+  background: var(--bt-bg);
+  color: var(--bt-text);
+  font: inherit;
+  font-size: 0.78rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.biotech-app .bt-chip[aria-pressed="true"] {
+  border-color: var(--bt-accent);
+  box-shadow: inset 0 0 0 1px var(--bt-accent);
+  font-weight: 700;
+}
+.biotech-app .bt-chip:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.biotech-app .bt-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+}
+
+.biotech-app button:focus-visible,
+.biotech-app a:focus-visible,
+.biotech-app .bt-scroll:focus-visible {
+  outline: 2px solid var(--bt-accent);
+  outline-offset: 2px;
+}
+
+/* Wide tables scroll inside this region; the page itself never overflows. */
+.biotech-app .bt-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.biotech-app .bt-table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.biotech-app .bt-table th,
+.biotech-app .bt-table td {
+  padding: 0.28rem 0.5rem;
+  border: 0;
+  border-bottom: 1px solid var(--bt-border);
+  background: none;
+  color: inherit;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.biotech-app .bt-table thead th {
+  color: var(--bt-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--bt-border);
+}
+
+.biotech-app .bt-table .bt-num {
+  text-align: right;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.biotech-app .bt-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.1rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+.biotech-app th[aria-sort="ascending"] .bt-sort,
+.biotech-app th[aria-sort="descending"] .bt-sort {
+  color: var(--bt-text);
+}
+.biotech-app th[aria-sort="none"] .bt-sort__icon {
+  opacity: 0.45;
+}
+
+.biotech-app .bt-row--benchmark th,
+.biotech-app .bt-row--benchmark td {
+  background: var(--bt-surface);
+  font-weight: 600;
+}
+.biotech-app .bt-benchmarks tr:last-child th,
+.biotech-app .bt-benchmarks tr:last-child td {
+  border-bottom: 2px solid var(--bt-border);
+}
+
+.biotech-app .bt-cell-ticker {
+  font-weight: 700;
+}
+
+.biotech-app .bt-cat-mark {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.35rem;
+  border-radius: 1px;
+  background: currentColor;
+}
+.biotech-app .bt-cat--pharma {
+  color: var(--bt-pharma);
+}
+.biotech-app .bt-cat--biotech {
+  color: var(--bt-biotech);
+}
+.biotech-app .bt-cat-label {
+  font-weight: 600;
+}
+
+.biotech-app .bt-tag {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0 0.3rem;
+  border: 1px solid var(--bt-border);
+  border-radius: 3px;
+  color: var(--bt-muted);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.biotech-app .bt-tag--warn {
+  border-color: var(--bt-warn-text);
+  background: var(--bt-warn-bg);
+  color: var(--bt-warn-text);
+}
+
+.biotech-app .bt-trend--up {
+  color: var(--bt-up);
+}
+.biotech-app .bt-trend--down {
+  color: var(--bt-down);
+}
+.biotech-app .bt-muted {
+  color: var(--bt-muted);
+}
+
+.biotech-app .bt-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.biotech-app .bt-spark {
+  display: block;
+}
+
+.biotech-app .bt-subhead {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.biotech-app .bt-admin-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Narrow screens: drop secondary columns; the category stays visible as the colour mark beside each ticker. */
+@media (max-width: 640px) {
+  .biotech-app .bt-table .bt-secondary {
+    display: none;
+  }
+  .biotech-app .bt-table {
+    font-size: 0.74rem;
+  }
+  .biotech-app .bt-table th,
+  .biotech-app .bt-table td {
+    padding: 0.28rem 0.2rem;
+  }
+  .biotech-app .bt-spark {
+    width: 40px;
+  }
+  .biotech-app .bt-card__body {
+    padding: 0.5rem 0.4rem;
+  }
+  .biotech-app .bt-row--benchmark .bt-tag:not(.bt-tag--warn) {
+    display: none;
+  }
+}
