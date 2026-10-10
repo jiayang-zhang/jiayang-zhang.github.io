@@ -475,6 +475,61 @@ html[data-mode="dark"] .biotech-app {
   margin-top: 0.5rem;
 }
 
+/* ---- Clinical trial feed ---- */
+
+.biotech-app .bt-event,
+.biotech-app .bt-review {
+  margin: 0;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid var(--bt-border);
+  border-left: 3px solid var(--bt-border);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.biotech-app .bt-event--success {
+  border-left-color: var(--bt-success);
+}
+.biotech-app .bt-event--failure {
+  border-left-color: var(--bt-failure);
+}
+.biotech-app .bt-event--initiation {
+  border-left-color: var(--bt-initiation);
+}
+.biotech-app .bt-tone--success {
+  color: var(--bt-success);
+}
+.biotech-app .bt-tone--failure {
+  color: var(--bt-failure);
+}
+.biotech-app .bt-tone--initiation {
+  color: var(--bt-initiation);
+}
+.biotech-app .bt-event__summary {
+  margin: 0.15rem 0;
+}
+.biotech-app .bt-review__note {
+  margin: 0.25rem 0;
+  color: var(--bt-warn-text);
+  background: var(--bt-warn-bg);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.78rem;
+}
+.biotech-app .bt-review__excerpt {
+  margin: 0.3rem 0;
+  padding: 0.3rem 0.5rem;
+  border-left: 3px solid var(--bt-border);
+  background: var(--bt-surface);
+  color: var(--bt-text);
+  font-size: 0.8rem;
+}
+.biotech-app .bt-review .bt-form {
+  margin: 0.4rem 0 0.2rem;
+}
+.biotech-app .bt-field--wide {
+  grid-column: 1 / -1;
+}
+
 /* ---- Admin forms ---- */
 
 .biotech-app .bt-admin-section {

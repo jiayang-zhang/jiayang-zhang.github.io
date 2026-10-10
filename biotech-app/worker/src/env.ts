@@ -7,6 +7,11 @@ export interface Env {
 
   // Secrets (wrangler secret put ...). Never logged, never returned to clients.
   FINNHUB_API_KEY?: string;
+  /** Anthropic API key for the clinical event classifier. */
+  ANTHROPIC_API_KEY?: string;
+
+  /** Required by SEC fair-access rules: who is calling, with a contact address. Not a secret. */
+  SEC_USER_AGENT?: string;
 
   // Cloudflare Access: team domain (https://<team>.cloudflareaccess.com) and
   // the application audience tag. Admin routes fail closed when unset.

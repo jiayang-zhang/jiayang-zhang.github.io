@@ -4,6 +4,13 @@
 # Finnhub market-data key (https://finnhub.io). Not needed when DATA_MODE=mock.
 FINNHUB_API_KEY="replace-with-finnhub-key"
 
+# Anthropic key for the clinical event classifier. Leave as is to collect
+# filings without classifying them.
+# ANTHROPIC_API_KEY="replace-with-anthropic-key"
+
+# Required before SEC EDGAR is called: identify yourself with a contact email.
+SEC_USER_AGENT="jiayangzh.com biotech dashboard local dev (you@example.com)"
+
 # "mock" serves generated placeholder prices, labelled MOCK DATA in the UI.
 DATA_MODE="mock"
 

@@ -4,6 +4,7 @@ import { createApi } from "./api";
 import { AdminApp } from "./components/AdminApp";
 import { CatalystModule } from "./components/CatalystModule";
 import { ModuleBoundary } from "./components/ModuleCard";
+import { NewsModule } from "./components/NewsModule";
 import { StockModule } from "./components/StockModule";
 import "./styles.css";
 
@@ -25,6 +26,9 @@ mount("biotech-root", (base) => {
       </ModuleBoundary>
       <ModuleBoundary name="Catalyst Calendar">
         <CatalystModule api={api} />
+      </ModuleBoundary>
+      <ModuleBoundary name="Clinical Trial Feed">
+        <NewsModule api={api} />
       </ModuleBoundary>
     </div>
   );

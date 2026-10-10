@@ -14,6 +14,7 @@
     "check:bundle": "node scripts/check-bundle.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
     "hono": "^4.13.13",
     "jose": "^6.2.12",
     "preact": "^11.0.1",

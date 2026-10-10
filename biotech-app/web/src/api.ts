@@ -1,3 +1,4 @@
+import type { ClinicalFeed, EventCategory, ReviewInput, ReviewItem, ReviewStatus } from "../../shared/events";
 import type { AdminCatalyst, AdminSession, CatalystFeed, CatalystInput, MarketSnapshot } from "../../shared/types";
 
 const TIMEOUT_MS = 10_000;
@@ -35,6 +36,18 @@ export interface RefreshResult {
   ran: boolean;
   updated: number;
   failed: string[];
+  backlog?: number;
+}
+
+export interface ClinicalStatus {
+  mode: string;
+  model: string;
+  promptVersion: string;
+  classifierConfigured: boolean;
+  documents: Record<string, number>;
+  events: Record<string, number>;
+  inputTokens: number;
+  outputTokens: number;
 }
 
 export function createApi(base: string) {
@@ -49,7 +62,15 @@ export function createApi(base: string) {
   return {
     market: () => request<MarketSnapshot>(`${root}/v1/market`),
     catalysts: () => request<CatalystFeed>(`${root}/v1/catalysts`),
+    events: (category: EventCategory | null, offset: number) => request<ClinicalFeed>(`${root}/v1/events?offset=${offset}${category ? `&category=${category}` : ""}`),
     session: () => admin<AdminSession>("/admin/session"),
+    reviewQueue: (status: ReviewStatus) => admin<{ items: ReviewItem[] }>(`/admin/review?status=${status}`),
+    saveReview: (id: string, input: ReviewInput) => admin<ReviewItem>(`/admin/review/${encodeURIComponent(id)}`, "PUT", input),
+    confirmReview: (id: string, input: ReviewInput) => admin<ReviewItem>(`/admin/review/${encodeURIComponent(id)}/confirm`, "POST", input),
+    rejectReview: (id: string) => admin<ReviewItem>(`/admin/review/${encodeURIComponent(id)}/reject`, "POST"),
+    clinicalStatus: () => admin<ClinicalStatus>("/admin/clinical/status"),
+    refreshClinical: (step: "discover" | "process") => admin<RefreshResult>("/admin/refresh/clinical", "POST", { step }),
+    refreshSignals: () => admin<RefreshResult>("/admin/refresh/signals", "POST"),
     refreshMarket: () => admin<RefreshResult>("/admin/refresh/market", "POST"),
     refreshProfiles: () => admin<RefreshResult>("/admin/refresh/profiles", "POST"),
     refreshCatalysts: () => admin<RefreshResult>("/admin/refresh/catalysts", "POST"),

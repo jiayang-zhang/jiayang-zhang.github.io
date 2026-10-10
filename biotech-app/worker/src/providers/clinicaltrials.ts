@@ -17,6 +17,7 @@ const studySchema = z.object({
     statusModule: z.object({
       overallStatus: z.string().optional(),
       primaryCompletionDateStruct: z.object({ date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/), type: z.string().optional() }).optional(),
+      whyStopped: z.string().optional(),
     }),
     sponsorCollaboratorsModule: z.object({ leadSponsor: z.object({ name: z.string() }).optional() }).optional(),
     conditionsModule: z.object({ conditions: z.array(z.string()).optional() }).optional(),
@@ -113,6 +114,62 @@ export function createClinicalTrialsProvider(deps: { fetchImpl?: typeof fetch; s
           }
           pageToken = body.nextPageToken;
           if (!pageToken) break;
+        }
+        return out;
+      });
+    },
+  };
+}
+
+// ---- Status changes, used as signals by the clinical feed ----
+
+export interface TrialStatusUpdate {
+  ticker: string;
+  nctId: string;
+  title: string | null;
+  phases: string[];
+  overallStatus: string;
+  whyStopped: string | null;
+  conditions: string[];
+  interventions: string[];
+}
+
+export interface TrialStatusProvider {
+  /** Phase II/III studies led by the company whose registry record was updated on or after `since`. */
+  fetchStatusUpdates(company: WatchlistCompany, since: string): Promise<TrialStatusUpdate[]>;
+}
+
+const STATUS_FIELDS = ["NCTId", "BriefTitle", "Phase", "OverallStatus", "WhyStopped", "LeadSponsorName", "Condition", "InterventionName"].join(",");
+
+export function createTrialStatusProvider(deps: { fetchImpl?: typeof fetch; sleep?: (ms: number) => Promise<void> } = {}): TrialStatusProvider {
+  const { baseUrl } = dashboardConfig.providers.clinicalTrials;
+  const { timeoutMs, retries, backoffBaseMs } = dashboardConfig.network;
+  return {
+    fetchStatusUpdates(company, since) {
+      return dedupe(`ctgov-status:${company.ticker}:${since}`, async () => {
+        const params = new URLSearchParams({
+          "query.lead": company.registrySponsors[0] ?? company.name,
+          "filter.advanced": `AREA[Phase](PHASE2 OR PHASE3) AND AREA[LastUpdatePostDate]RANGE[${since},MAX]`,
+          fields: STATUS_FIELDS,
+          pageSize: "200",
+        });
+        const body = await fetchJson(`${baseUrl}/studies?${params}`, { schema: pageSchema, timeoutMs, retries, backoffBaseMs, ...deps });
+        const out: TrialStatusUpdate[] = [];
+        for (const study of body.studies) {
+          const p = study.protocolSection;
+          const phases = p.designModule?.phases ?? [];
+          const status = p.statusModule.overallStatus;
+          if (!status || !phaseQualifies(phases) || !sponsorMatches(company, p.sponsorCollaboratorsModule?.leadSponsor?.name)) continue;
+          out.push({
+            ticker: company.ticker,
+            nctId: p.identificationModule.nctId,
+            title: p.identificationModule.briefTitle ?? null,
+            phases,
+            overallStatus: status,
+            whyStopped: p.statusModule.whyStopped ?? null,
+            conditions: p.conditionsModule?.conditions ?? [],
+            interventions: (p.armsInterventionsModule?.interventions ?? []).map((i) => i.name).filter((n) => !NON_PROGRAMS.test(n)),
+          });
         }
         return out;
       });

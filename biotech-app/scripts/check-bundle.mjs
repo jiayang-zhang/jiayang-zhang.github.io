@@ -12,7 +12,7 @@ if (!existsSync(outDir)) {
 }
 
 // Identifiers that exist only in server code or secret configuration.
-const needles = ["FINNHUB_API_KEY", "X-Finnhub-Token", "ANTHROPIC_API_KEY", "ACCESS_AUD", "DEV_ADMIN_EMAIL", "Cf-Access-Jwt-Assertion"];
+const needles = ["FINNHUB_API_KEY", "X-Finnhub-Token", "ANTHROPIC_API_KEY", "ACCESS_AUD", "DEV_ADMIN_EMAIL", "Cf-Access-Jwt-Assertion", "SEC_USER_AGENT", "exactly five event categories"];
 
 // Actual secret values, when a local secrets file or environment provides them.
 const devVars = join(root, "worker", ".dev.vars");
@@ -34,7 +34,7 @@ for (const file of files) {
   const text = readFileSync(join(outDir, file), "utf8");
   for (const needle of needles) {
     if (text.includes(needle)) {
-      console.error(`FAIL ${file}: contains ${needles.indexOf(needle) < 6 ? needle : "a secret value"}`);
+      console.error(`FAIL ${file}: contains ${needles.indexOf(needle) < 8 ? needle : "a secret value"}`);
       bad = true;
     }
   }

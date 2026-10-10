@@ -8,6 +8,9 @@ routes = [{ pattern = "api.jiayangzh.com", custom_domain = true }]
 [vars]
 ALLOWED_ORIGINS = "https://jiayangzh.com"
 DATA_MODE = "live"
+# Required by SEC: identify yourself with a contact email, e.g.
+# "jiayangzh.com biotech dashboard (you@example.com)". EDGAR is not called until set.
+SEC_USER_AGENT = ""
 # Set these three after creating the Cloudflare Access application (see README).
 ACCESS_TEAM_DOMAIN = ""
 ACCESS_AUD = ""
@@ -22,8 +25,9 @@ migrations_dir = "migrations"
 [triggers]
 # UTC. The price job covers 09:30-16:00 New York in both DST states and skips
 # itself outside the session, apart from one run after the close.
-# The catalyst job syncs ClinicalTrials.gov once an hour.
-crons = ["*/5 13-21 * * 1-5", "7 12 * * 1-5", "23 * * * *"]
+# The hourly job syncs ClinicalTrials.gov (catalysts and status changes).
+# The 15-minute job looks for new SEC filings or works through the backlog.
+crons = ["*/5 13-21 * * 1-5", "7 12 * * 1-5", "23 * * * *", "*/15 * * * *"]
 
 [[ratelimits]]
 name = "WRITE_LIMITER"

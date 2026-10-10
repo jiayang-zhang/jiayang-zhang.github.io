@@ -79,12 +79,30 @@ export const dashboardConfig = {
     initialPageSize: 20,
     backfillMonths: 12,
     showUnreviewedEvents: true,
+    // Optional supplementary press-release feeds: { ticker, url } per feed.
+    // Empty by default; add only feeds whose terms allow automated reading.
+    rssFeeds: [] as Array<{ ticker: string; url: string }>,
   },
 
   clinical: {
     classificationMode: "llm-with-review" as "llm-with-review" | "manual-only",
     includePhase1_2Trials: false,
     llmModel: "claude-opus-5-5",
+    llmEffort: "medium" as "low" | "medium" | "high",
+    // Bump when the prompt or output schema changes; stored with every classification.
+    promptVersion: "2026-10-11.1",
+    // Longer documents are cut to this length before classification and flagged as truncated.
+    maxInputChars: 40_000,
+    // Filings handled per scheduled run. Each costs up to four outbound requests
+    // (index, two documents, classifier); the Workers free plan allows 50 per run.
+    batchSize: 10,
+    maxAttempts: 3,
+    // New filings are looked for at most this often while a backlog remains.
+    discoverEveryMs: 3_600_000,
+    // Registry status changes are checked for trials updated within this many days.
+    registryLookbackDays: 14,
+    // Two reports of the same programme and outcome this close together are one event.
+    duplicateWindowDays: 14,
   },
 
   catalysts: {

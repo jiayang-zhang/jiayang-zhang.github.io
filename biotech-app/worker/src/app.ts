@@ -7,7 +7,12 @@ import { listVar, type Env } from "./env";
 import { UpstreamError } from "./lib/http";
 import { allowRequest } from "./lib/ratelimit";
 import { createMarketDataProvider } from "./providers";
-import { createClinicalTrialsProvider, type RegistryProvider } from "./providers/clinicaltrials";
+import { EVENT_CATEGORIES, type EventCategory, type ReviewStatus } from "../../shared/events";
+import { createAnthropicClassifier } from "./providers/classifier";
+import { createClinicalTrialsProvider, createTrialStatusProvider, type RegistryProvider, type TrialStatusProvider } from "./providers/clinicaltrials";
+import { createEdgarProvider } from "./providers/edgar";
+import { createNewsProvider } from "./providers/rss";
+import { getClinicalFeed, getClinicalStatus, listReviewItems, parseReviewInput, rejectReview, runClinicalCycle, saveReview, syncTrialSignals, type ClinicalDeps } from "./services/clinical";
 import type { MarketDataProvider } from "./providers/types";
 import { createCatalyst, deleteCatalyst, getCatalystFeed, listAdminCatalysts, parseCatalystInput, syncRegistryCatalysts, updateCatalyst } from "./services/catalysts";
 import { getSnapshot, refreshPrices, refreshProfiles } from "./services/market";
@@ -16,6 +21,12 @@ export interface AppDeps {
   auth?: AuthDeps;
   provider?: (env: Env) => MarketDataProvider;
   registry?: () => RegistryProvider;
+  clinical?: (env: Env) => ClinicalDeps;
+  trialStatus?: () => TrialStatusProvider;
+}
+
+export function defaultClinicalDeps(env: Env): ClinicalDeps {
+  return { edgar: createEdgarProvider(env.SEC_USER_AGENT), classifier: createAnthropicClassifier(env.ANTHROPIC_API_KEY), news: createNewsProvider() };
 }
 
 type AppEnv = { Bindings: Env; Variables: { session: AdminSession } };
@@ -28,6 +39,8 @@ export function createApp(deps: AppDeps = {}) {
   const provider = (env: Env) => (deps.provider ?? createMarketDataProvider)(env);
   const registry = () => (deps.registry ?? createClinicalTrialsProvider)();
   const nowSeconds = () => Math.floor(Date.now() / 1000);
+  const clinical = (env: Env) => (deps.clinical ?? defaultClinicalDeps)(env);
+  const trialStatus = () => (deps.trialStatus ?? createTrialStatusProvider)();
 
   app.use(
     "*",
@@ -58,6 +71,16 @@ export function createApp(deps: AppDeps = {}) {
 
   app.get("/v1/catalysts", async (c) => {
     const feed = await getCatalystFeed(c.env.DB);
+    c.header("Cache-Control", "public, max-age=60");
+    return c.json(feed);
+  });
+
+  app.get("/v1/events", async (c) => {
+    const requested = c.req.query("category");
+    const category = EVENT_CATEGORIES.includes(requested as EventCategory) ? (requested as EventCategory) : null;
+    if (requested && !category) return c.json({ error: "invalid_category" }, 400);
+    const number = (value: string | undefined) => (value !== undefined && /^\d{1,6}$/.test(value) ? Number(value) : undefined);
+    const feed = await getClinicalFeed(c.env.DB, { category, offset: number(c.req.query("offset")), limit: number(c.req.query("limit")) });
     c.header("Cache-Control", "public, max-age=60");
     return c.json(feed);
   });
@@ -144,6 +167,48 @@ export function createApp(deps: AppDeps = {}) {
   app.post("/admin/refresh/catalysts", async (c) => {
     const result = await syncRegistryCatalysts(c.env.DB, registry());
     await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, "refresh.catalysts", `updated ${result.updated}, removed ${result.removed}, failed ${result.failed.length}`);
+    return c.json(result);
+  });
+
+  // ---- Clinical review queue ----
+
+  app.get("/admin/review", async (c) => {
+    const requested = c.req.query("status") ?? "pending";
+    if (!["pending", "verified", "rejected"].includes(requested)) return c.json({ error: "invalid_status" }, 400);
+    return c.json({ items: await listReviewItems(c.env.DB, requested as ReviewStatus) });
+  });
+
+  const review = (confirm: boolean) => async (c: import("hono").Context<AppEnv>) => {
+    const parsed = parseReviewInput(await c.req.json().catch(() => null));
+    if (!parsed.ok) return c.json({ error: "invalid", fields: parsed.fields }, 400);
+    const result = await saveReview(c.env.DB, c.req.param("id") ?? "", parsed.value, c.get("session").email, confirm);
+    if (!result.ok) return c.json({ error: result.reason }, 404);
+    await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, confirm ? "review.confirm" : "review.edit", result.item.id);
+    return c.json(result.item);
+  };
+  app.put("/admin/review/:id", review(false));
+  app.post("/admin/review/:id/confirm", review(true));
+
+  app.post("/admin/review/:id/reject", async (c) => {
+    const result = await rejectReview(c.env.DB, c.req.param("id"), c.get("session").email);
+    if (!result.ok) return c.json({ error: result.reason }, 404);
+    await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, "review.reject", result.item.id);
+    return c.json(result.item);
+  });
+
+  app.get("/admin/clinical/status", async (c) => c.json(await getClinicalStatus(c.env.DB, clinical(c.env).classifier !== null)));
+
+  app.post("/admin/refresh/clinical", async (c) => {
+    const body = (await c.req.json().catch(() => null)) as { step?: string } | null;
+    const step = body?.step === "discover" || body?.step === "process" ? body.step : undefined;
+    const result = await runClinicalCycle(c.env.DB, clinical(c.env), { step });
+    await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, "refresh.clinical", `${result.step}: ${result.updated} handled, ${result.failed.length} failed, backlog ${result.backlog}`);
+    return c.json(result);
+  });
+
+  app.post("/admin/refresh/signals", async (c) => {
+    const result = await syncTrialSignals(c.env.DB, trialStatus());
+    await writeAudit(c.env.DB, nowSeconds(), c.get("session").email, "refresh.signals", `${result.updated} signals, ${result.failed.length} failed`);
     return c.json(result);
   });
 

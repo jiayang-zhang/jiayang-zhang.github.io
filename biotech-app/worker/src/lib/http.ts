@@ -17,14 +17,17 @@ export class UpstreamError extends Error {
   }
 }
 
-export interface FetchJsonOptions<T> {
-  schema: ZodType<T>;
+export interface RequestOptions {
   headers?: Record<string, string>;
   timeoutMs: number;
   retries: number;
   backoffBaseMs: number;
   fetchImpl?: typeof fetch;
   sleep?: (ms: number) => Promise<void>;
+}
+
+export interface FetchJsonOptions<T> extends RequestOptions {
+  schema: ZodType<T>;
 }
 
 const MAX_RETRY_AFTER_MS = 5_000;
@@ -35,7 +38,9 @@ function retryable(err: UpstreamError): boolean {
   return err.kind === "http" && (err.status ?? 0) >= 500;
 }
 
-async function attempt<T>(url: string, o: FetchJsonOptions<T>): Promise<{ value: T } | { error: UpstreamError; retryAfterMs?: number }> {
+type Attempt<T> = { value: T } | { error: UpstreamError; retryAfterMs?: number };
+
+async function attempt<T>(url: string, o: RequestOptions, read: (res: Response) => Promise<T>): Promise<Attempt<T>> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), o.timeoutMs);
   try {
@@ -46,15 +51,9 @@ async function attempt<T>(url: string, o: FetchJsonOptions<T>): Promise<{ value:
       return { error: new UpstreamError("rate_limited", 429), retryAfterMs };
     }
     if (!res.ok) return { error: new UpstreamError("http", res.status) };
-    let body: unknown;
-    try {
-      body = await res.json();
-    } catch {
-      return { error: new UpstreamError("invalid") };
-    }
-    const parsed = o.schema.safeParse(body);
-    return parsed.success ? { value: parsed.data } : { error: new UpstreamError("invalid") };
+    return { value: await read(res) };
   } catch (err) {
+    if (err instanceof UpstreamError) return { error: err };
     const aborted = controller.signal.aborted || (err instanceof Error && err.name === "AbortError");
     return { error: new UpstreamError(aborted ? "timeout" : "network") };
   } finally {
@@ -62,15 +61,34 @@ async function attempt<T>(url: string, o: FetchJsonOptions<T>): Promise<{ value:
   }
 }
 
-/** GET JSON with a timeout, schema validation and exponential backoff on transient failures. */
-export async function fetchJson<T>(url: string, o: FetchJsonOptions<T>): Promise<T> {
+async function withRetry<T>(url: string, o: RequestOptions, read: (res: Response) => Promise<T>): Promise<T> {
   const sleep = o.sleep ?? defaultSleep;
   for (let i = 0; ; i++) {
-    const result = await attempt(url, o);
+    const result = await attempt(url, o, read);
     if ("value" in result) return result.value;
     if (i >= o.retries || !retryable(result.error)) throw result.error;
     await sleep(result.retryAfterMs ?? o.backoffBaseMs * 2 ** i);
   }
+}
+
+/** GET JSON with a timeout, schema validation and exponential backoff on transient failures. */
+export function fetchJson<T>(url: string, o: FetchJsonOptions<T>): Promise<T> {
+  return withRetry(url, o, async (res) => {
+    let body: unknown;
+    try {
+      body = await res.json();
+    } catch {
+      throw new UpstreamError("invalid");
+    }
+    const parsed = o.schema.safeParse(body);
+    if (!parsed.success) throw new UpstreamError("invalid");
+    return parsed.data;
+  });
+}
+
+/** GET a text document with the same timeout and retry behaviour. */
+export function fetchText(url: string, o: RequestOptions): Promise<string> {
+  return withRetry(url, o, (res) => res.text());
 }
 
 const inflight = new Map<string, Promise<unknown>>();

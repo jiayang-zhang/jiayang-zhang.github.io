@@ -3,6 +3,7 @@ import type { AdminSession } from "../../../shared/types";
 import { ApiError, type Api, type RefreshResult } from "../api";
 import { CatalystAdmin } from "./CatalystAdmin";
 import { ModuleBoundary, ModuleCard } from "./ModuleCard";
+import { ReviewQueue } from "./ReviewQueue";
 
 type SessionState = { phase: "checking" } | { phase: "signed-out" } | { phase: "signed-in"; session: AdminSession };
 
@@ -68,6 +69,7 @@ export function AdminApp({ api }: { api: Api }) {
             <RefreshButton label="Refresh prices now" run={api.refreshMarket} />
             <RefreshButton label="Refresh market caps" run={api.refreshProfiles} />
             <RefreshButton label="Sync registry readouts" run={api.refreshCatalysts} />
+            <ReviewQueue api={api} />
             <CatalystAdmin api={api} />
           </div>
         )}
