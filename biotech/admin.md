@@ -1,5 +1,5 @@
 ---
-title: Biotech admin
+title: Biopharma Watch admin
 layout: page
 permalink: /biotech/admin/
 toc: false

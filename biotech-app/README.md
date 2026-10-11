@@ -82,7 +82,7 @@ In the GitHub repository settings, set Pages, Build and deployment, Source to "G
 |---|---|---|---|
 | `FINNHUB_API_KEY` | Worker secret | yes | Market data |
 | `ANTHROPIC_API_KEY` | Worker secret | yes | Clinical event classifier. Without it filings are collected but not classified |
-| `SEC_USER_AGENT` | `wrangler.toml` vars | no | Identifies you to SEC, e.g. `jiayangzh.com biotech dashboard (you@example.com)`. EDGAR is not called until it contains an email address |
+| `SEC_USER_AGENT` | `wrangler secret put` | no (kept private) | Identifies you to SEC, e.g. `jiayangzh.com biotech dashboard (you@example.com)`. EDGAR is not called until it contains an email address |
 | `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD`, `ADMIN_EMAILS` | `wrangler.toml` vars | no | Admin authentication |
 | `ALLOWED_ORIGINS` | `wrangler.toml` vars | no | Browser origins allowed to call the API |
 | `DATA_MODE` | `wrangler.toml` vars | no | `live` or `mock` |

@@ -1,5 +1,6 @@
 ---
 layout: home-with-content
+title: Home
 # Index page
 ---
 

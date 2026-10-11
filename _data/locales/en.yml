@@ -1,0 +1,4 @@
+# Merged over the theme's locale file. The theme takes a tab's browser title
+# from here, keyed by the tab's title in lower case.
+tabs:
+  biopharma watch: Biopharma Watch

@@ -10,7 +10,8 @@ ALLOWED_ORIGINS = "https://jiayangzh.com"
 DATA_MODE = "live"
 # Required by SEC: identify yourself with a contact email, e.g.
 # "jiayangzh.com biotech dashboard (you@example.com)". EDGAR is not called until set.
-SEC_USER_AGENT = ""
+# Kept out of this file so the address stays private:
+#   npx wrangler secret put SEC_USER_AGENT --config worker/wrangler.toml
 # Set these three after creating the Cloudflare Access application (see README).
 ACCESS_TEAM_DOMAIN = ""
 ACCESS_AUD = ""
@@ -19,7 +20,7 @@ ADMIN_EMAILS = ""
 [[d1_databases]]
 binding = "DB"
 database_name = "biotech"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "85c0f7c4-2710-400a-bd8a-3a5b6f11f48c"
 migrations_dir = "migrations"
 
 [triggers]
@@ -27,7 +28,7 @@ migrations_dir = "migrations"
 # itself outside the session, apart from one run after the close.
 # The hourly job syncs ClinicalTrials.gov (catalysts and status changes).
 # The 15-minute job looks for new SEC filings or works through the backlog.
-crons = ["*/5 13-21 * * 1-5", "7 12 * * 1-5", "23 * * * *", "*/15 * * * *"]
+crons = ["*/5 13-21 * * MON-FRI", "7 12 * * MON-FRI", "23 * * * *", "*/15 * * * *"]
 
 [[ratelimits]]
 name = "WRITE_LIMITER"

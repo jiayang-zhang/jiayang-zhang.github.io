@@ -1,5 +1,5 @@
 ---
-title: Biotech
+title: Biopharma Watch
 icon: fas fa-dna
 order: 1
 toc: false
